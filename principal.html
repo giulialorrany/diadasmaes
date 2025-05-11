@@ -1,0 +1,246 @@
+    <!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Feliz Dia das Mães</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <style>
+            .buttonSeta{
+                margin-bottom: 2vh;
+                border:none;
+            margin-right: 196vh;
+        }
+            .rose {
+                transition: all 0.5s ease;
+                cursor: pointer;
+            }
+            .rose:hover {
+                filter: brightness(1.1);
+            }
+            .rose.grown {
+                transform: scale(1.5);
+            }
+            .hidden-message {
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                position: absolute;
+                background-color: rgba(255, 255, 255, 0.9);
+                padding: 10px;
+                border-radius: 8px;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                pointer-events: none;
+            }
+            .message-container:hover .hidden-message {
+                opacity: 1;
+            }
+            .heart-beat {
+                animation: heartbeat 1.5s infinite;
+            }
+            @keyframes heartbeat {
+                0% { transform: scale(1); }
+                25% { transform: scale(1.1); }
+                50% { transform: scale(1); }
+                75% { transform: scale(1.1); }
+                100% { transform: scale(1); }
+            }
+        </style>
+    </head>
+    <button class="buttonSeta"><a href="lua.html"><img src="iconSetaEsquerda.png" alt="seta esquerda" width="28vh"></a></button>
+
+    <body class="bg-pink-50 min-h-screen flex flex-col items-center justify-center p-4">
+        <div class="max-w-4xl w-full text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-rose-600 mb-8 heart-beat">
+                <i class="fas fa-heart mr-2"></i> Feliz Dia das Mães! <i class="fas fa-heart ml-2"></i>
+            </h1>
+            
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-0 relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-r from-pink-100 to-rose-100 opacity-30"></div>
+                <p class="text-lg md:text-xl text-gray-700 relative z-10">
+                    Mamãe, é divertido viver do seu lado. <br>Cada dia ao seu lado é um presente!
+                    <br>Você fica linda sorrindo 😁
+                </p>
+                <br>
+                <!-- carrosel -->
+            
+                <div id="meuCarrossel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#meuCarrossel" data-bs-slide-to="0" class="active"></button>
+                        <button type="button" data-bs-target="#meuCarrossel" data-bs-slide-to="1"></button>
+                        <button type="button" data-bs-target="#meuCarrossel" data-bs-slide-to="2"></button>
+                    </div>
+                
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="mae1.jpeg" class="d-block w-100" alt="Foto 1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="mae2.jpeg" class="d-block w-100 foto2" alt="Foto 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="mae3.jpeg" class="d-block w-100 foto3" alt="Foto 3">
+                        </div>
+                    </div>
+                
+                    <button class="carousel-control-prev" type="button" data-bs-target="#meuCarrossel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#meuCarrossel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+
+                <!-- <img src="buque" alt=""> -->
+            </div>
+            
+            <div class="grid grid-cols-3 md:grid-cols-5 gap-4 mb-1">
+                <!-- Small roses that grow when clicked -->
+                <div class="rose text-rose-600 text-2xl text-center" onclick="growRose(this)">
+                    <i class="fas fa-rose"></i>
+                </div>
+                <div class="rose text-rose-600 text-2xl text-center" onclick="growRose(this)">
+                    <i class="fas fa-rose"></i>
+                </div>
+                <div class="rose text-rose-600 text-2xl text-center" onclick="growRose(this)">
+                    <i class="fas fa-rose"></i>
+                </div>
+                <div class="rose text-rose-600 text-2xl text-center" onclick="growRose(this)">
+                    <i class="fas fa-rose"></i>
+                </div>
+                <div class="rose text-rose-600 text-2xl text-center" onclick="growRose(this)">
+                    <i class="fas fa-rose"></i>
+                </div>
+                <div class="rose text-rose-600 text-2xl text-center" onclick="growRose(this)">
+                    <i class="fas fa-rose"></i>
+                </div>
+                <div class="rose text-rose-600 text-2xl text-center" onclick="growRose(this)">
+                    <i class="fas fa-rose"></i>
+                </div>
+                <div class="rose text-rose-600 text-2xl text-center" onclick="growRose(this)">
+                    <i class="fas fa-rose"></i>
+                </div>
+                <div class="rose text-rose-600 text-2xl text-center" onclick="growRose(this)">
+                    <i class="fas fa-rose"></i>
+                </div>
+                <div class="rose text-rose-600 text-2xl text-center" onclick="growRose(this)">
+                    <i class="fas fa-rose"></i>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Hidden messages that appear on hover -->
+                <div class="message-container relative bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div class="text-rose-500 text-3xl mb-2">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Seu apoio</h3>
+                    <div class="hidden-message">
+                        <p class="text-sm text-gray-600">Você esteva ao meu lado, me apoiando nos momentos mais difíceis.</p>
+                    </div>
+                </div>
+                <br>
+                
+                <div class="message-container relative bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div class="text-rose-500 text-3xl mb-2">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Seu amor</h3>
+                    <div class="hidden-message">
+                        <p class="text-sm text-gray-600">Seu amor é incondicional e me faz sentir especial todos os dias.</p>
+                    </div>
+                </div>
+                <br>
+                <!-- <div class="message-container relative bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div class="text-rose-500 text-3xl mb-2">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Seus conselhos</h3>
+                    <div class="hidden-message">
+                        <p class="text-sm text-gray-600">Seus conselhos me ajudam a enxergar .</p>
+                    </div>
+                </div> -->
+                <br>
+                <div class="message-container relative bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div class="text-rose-500 text-3xl mb-2">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Seu cuidado</h3>
+                    <div class="hidden-message">
+                        <p class="text-sm text-gray-600">Nada se compara ao seu carinho e cuidado em cada detalhe, da alimentação ao que eu nem consigo imaginar.</p>
+                    </div>
+                </div>
+                <br>
+                <div class="message-container relative bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div class="text-rose-500 text-3xl mb-2">
+                        <i class="fas fa-laugh-beam"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Sua alegria</h3>
+                    <div class="hidden-message">
+                        <p class="text-sm text-gray-600">Seu sorriso ilumina minha vida e traz felicidade ao meu coração, quero te ver feliz sempre.</p>
+                    </div>
+                </div>
+                <br>
+                <div class="message-container relative bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div class="text-rose-500 text-3xl mb-2">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Você é única</h3>
+                    <div class="hidden-message">
+                        <p class="text-sm text-gray-600">Não existe ninguém no mundo como você. Você é simplesmente incrível!</p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="mt-12 bg-rose-100 rounded-full p-4 inline-block">
+                <p class="text-rose-700 font-medium">
+                    <i class="fas fa-quote-left mr-2"></i> 
+                    Mãe, te amamos daqui até a lua vai e volta você é nossa amor. 
+                    <i class="fas fa-quote-right ml-2"></i>
+                </p>
+            </div>
+        </div>
+        
+        
+        <footer class="mt-12 text-gray-500 text-sm">
+            <p>Feito com <i class="fas fa-heart text-rose-500"></i> para a melhor mãe do mundo</p>
+        </footer>
+        <button class="btn btn-primary mt-5"><a href="rosas.html">Próxima Página</a></button>
+
+        <script>
+            function growRose(element) {
+                element.classList.toggle('grown');
+                
+                // Add petals falling effect
+                if (element.classList.contains('grown')) {
+                    const petals = document.createElement('div');
+                    petals.innerHTML = '<i class="fas fa-leaf text-rose-400 absolute animate-petal-fall"></i>';
+                    petals.style.position = 'absolute';
+                    petals.style.left = `${element.getBoundingClientRect().left + element.offsetWidth/2}px`;
+                    petals.style.top = `${element.getBoundingClientRect().top}px`;
+                    document.body.appendChild(petals);
+                    
+                    setTimeout(() => {
+                        petals.remove();
+                    }, 2000);
+                }
+            }
+            
+            // Add animation for petals
+            const style = document.createElement('style');
+            style.innerHTML = `
+                @keyframes petal-fall {
+                    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+                    100% { transform: translateY(100px) rotate(360deg); opacity: 0; }
+                }
+                .animate-petal-fall {
+                    animation: petal-fall 2s linear forwards;
+                }
+            `;
+            document.head.appendChild(style);
+        </script>
+    </body>
+    </html>

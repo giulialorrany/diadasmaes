@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lua Especial - Dia das Mães</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .moon-container {
+            perspective: 1000px;
+            overflow: hidden;
+        }
+        
+        .moon {
+            background: radial-gradient(circle at 30% 30%, #f5f3ce 0%, #e8e6c3 20%, #d4d2b5 40%, #b8b6a1 60%, #9a9885 80%, #7a786a 100%);
+            border-radius: 50%;
+            position: relative;
+            transition: transform 0.5s ease;
+            box-shadow: 0 0 80px rgba(245, 243, 206, 0.5);
+            cursor: pointer;
+        }
+        
+        .crater {
+            position: absolute;
+            background: rgba(180, 178, 150, 0.6);
+            border-radius: 50%;
+            box-shadow: inset 3px 3px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+            transition: all 0.8s ease;
+            text-align: center;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            width: 80%;
+        }
+        
+        .zoom-effect {
+            animation: pulse 2s infinite alternate;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
+        }
+        
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite alternate;
+        }
+        
+        @keyframes twinkle {
+            0% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+          /* Mantenha todo o CSS existente e adicione isto: */
+    */
+    </style>
+</head>
+<body class="bg-gray-900 min-h-screen flex items-center justify-center overflow-hidden">
+    <div class="stars" id="stars"></div>
+    
+    <div class="moon-container flex flex-col items-center">
+        <h1 class="text-white text-3xl mb-8 font-serif">Toque na Lua para revelar a mensagem</h1>
+        
+        <div class="moon zoom-effect relative" id="moon" style="width: 300px; height: 300px;">
+            <!-- Crateres -->
+            <div class="crater" style="width: 50px; height: 50px; top: 20%; left: 20%;"></div>
+            <div class="crater" style="width: 30px; height: 30px; top: 40%; left: 60%;"></div>
+            <div class="crater" style="width: 40px; height: 40px; top: 70%; left: 30%;"></div>
+            <div class="crater" style="width: 25px; height: 25px; top: 50%; left: 20%;"></div>
+            <div class="crater" style="width: 35px; height: 35px; top: 30%; left: 70%;"></div>
+            <div class="crater" style="width: 45px; height: 45px; top: 65%; left: 65%;"></div>
+            
+            <!-- Mensagem -->
+            <div class="message" id="message">
+                <p class="text-dark">Feliz dia das Mães!!!</p>
+                <p class="text-dark">a lua me lembra você</p>
+           
+                <button class="bg-primary rounded-3 px-1 fs-6"><a href="principal.html">Iniciar</a></button>
+            </div>
+        </div>
+        
+        <p class="text-white mt-8 opacity-70">Clique ou toque na Lua para aproximar</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const moon = document.getElementById('moon');
+            const message = document.getElementById('message');
+            const stars = document.getElementById('stars');
+            let zoomLevel = 1;
+            let isZoomed = false;
+            
+            // Create stars
+            for (let i = 0; i < 200; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                star.style.width = `${Math.random() * 3}px`;
+                star.style.height = star.style.width;
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.animationDelay = `${Math.random() * 2}s`;
+                stars.appendChild(star);
+            }
+            
+            moon.addEventListener('click', function() {
+                if (!isZoomed) {
+                    // Zoom in
+                    zoomLevel = 3;
+                    moon.style.transform = `scale(${zoomLevel})`;
+                    moon.classList.remove('zoom-effect');
+                    
+                    // Show message
+                    setTimeout(() => {
+                        message.style.transform = 'translate(-50%, -50%) scale(1)';
+                        message.style.opacity = '1';
+                    }, 500);
+                    
+                    isZoomed = true;
+                } else {
+                    // Zoom out
+                    zoomLevel = 1;
+                    moon.style.transform = `scale(${zoomLevel})`;
+                    moon.classList.add('zoom-effect');
+                    
+                    // Hide message
+                    message.style.transform = 'translate(-50%, -50%) scale(0)';
+                    message.style.opacity = '0';
+                    
+                    isZoomed = false;
+                }
+            });
+            
+            // Mobile touch support
+            moon.addEventListener('touchstart', function(e) {
+                e.preventDefault();
+                moon.click();
+            });
+        });
+    </script>
+</body>
+</html>
